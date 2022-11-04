@@ -1,10 +1,5 @@
 var searchForm = document.getElementById("search-form");
-<<<<<<< HEAD
-=======
-
 var title = document.getElementById("title");
-
->>>>>>> d08128ecae7f036223a83cbeef4e408e65b24093
 var display = document.getElementById("par");
 var coin1 = document.getElementById('coin-1');
 var coin2 = document.getElementById('coin-2');
@@ -16,29 +11,33 @@ var coin7 = document.getElementById('coin-7');
 var coin8 = document.getElementById('coin-8');
 var coin9 = document.getElementById('coin-9');
 var coin10 = document.getElementById('coin-10');
-<<<<<<< HEAD
-​
-let p = document.createElement('p');
-​
-​
-=======
-
+var cryptoSearch = document.getElementById('crypto-search');
+var search = document.getElementById('search');
+let allcoins = [];
+var results = document.getElementById('search-results');
 
 
 
 let p = document.createElement('p');
 
->>>>>>> d08128ecae7f036223a83cbeef4e408e65b24093
 const options = {
     method: 'GET',
     headers: {
     }
 };
-<<<<<<< HEAD
-​
-=======
 
->>>>>>> d08128ecae7f036223a83cbeef4e408e65b24093
+cryptoSearch.addEventListener("input", e => {
+    var coins = document.querySelectorAll('#search-results .card');
+    var value = e.target.value.toLowerCase();
+    coins.forEach(data => {
+        const isVisible = data.textContent.toLowerCase().includes(value);
+        data.classList.toggle("hide", !isVisible);
+        if(value == '' || value == null){
+            data.classList.toggle("hide", isVisible);
+        }
+    })
+})
+
 fetch('https://api.coinlore.net/api/global/', options)
     .then(response => response.json())
     .then(response => {
@@ -47,38 +46,29 @@ fetch('https://api.coinlore.net/api/global/', options)
         display.append(p)
     })
     .catch(err => console.error(err));
-<<<<<<< HEAD
-​
-​
-    fetch('https://api.coinlore.net/api/tickers/', options)
-=======
 
 fetch('https://api.coinlore.net/api/tickers/', options)
-
->>>>>>> d08128ecae7f036223a83cbeef4e408e65b24093
     .then(response => response.json())
     .then(response => {
         console.log(response);
-        var data = response.data;
-        coin1.textContent = data[0].rank + ': ' + data[0].name + ': $' + data[0].price_usd;
-        coin2.textContent = data[1].rank + ': ' + data[1].name + ': $' + data[1].price_usd;
-        coin3.textContent = data[2].rank + ': ' + data[2].name + ': $' + data[2].price_usd;
-        coin4.textContent = data[3].rank + ': ' + data[3].name + ': $' + data[3].price_usd;
-        coin5.textContent = data[4].rank + ': ' + data[4].name + ': $' + data[4].price_usd;
-        coin6.textContent = data[5].rank + ': ' + data[5].name + ': $' + data[5].price_usd;
-        coin7.textContent = data[6].rank + ': ' + data[6].name + ': $' + data[6].price_usd;
-        coin8.textContent = data[7].rank + ': ' + data[7].name + ': $' + data[7].price_usd;
-        coin9.textContent = data[8].rank + ': ' + data[8].name + ': $' + data[8].price_usd;
-        coin10.textContent = data[9].rank + ': ' + data[9].name + ': $' + data[9].price_usd;
-<<<<<<< HEAD
-​
-    })
-    .catch(err => console.error(err));
-=======
+        data = response.data;
+        for(var i = 0;i < data.length;i++){
+            allcoins.push(data[i]);
+        }
+        coin1.textContent = data[0].rank + '. ' + data[0].name + ': $' + data[0].price_usd;
+        coin2.textContent = data[1].rank + '. ' + data[1].name + ': $' + data[1].price_usd;
+        coin3.textContent = data[2].rank + '.' + data[2].name + ': $' + data[2].price_usd;
+        coin4.textContent = data[3].rank + '. ' + data[3].name + ': $' + data[3].price_usd;
+        coin5.textContent = data[4].rank + '. ' + data[4].name + ': $' + data[4].price_usd;
+        coin6.textContent = data[5].rank + '. ' + data[5].name + ': $' + data[5].price_usd;
+        coin7.textContent = data[6].rank + '. ' + data[6].name + ': $' + data[6].price_usd;
+        coin8.textContent = data[7].rank + '. ' + data[7].name + ': $' + data[7].price_usd;
+        coin9.textContent = data[8].rank + '. ' + data[8].name + ': $' + data[8].price_usd;
+        coin10.textContent = data[9].rank + '. ' + data[9].name + ': $' + data[9].price_usd;
 
         coin1.addEventListener("click", function ()  {
             title.textContent = data[0].name;
-            //display.textContent = 
+            display.textContent = 'Bitcoin is c'
         })
 
         coin2.addEventListener("click", function ()  {
@@ -116,6 +106,18 @@ fetch('https://api.coinlore.net/api/tickers/', options)
         coin10.addEventListener("click", function ()  {
             title.textContent = data[9].name;
         })
+
+        allcoins.forEach(data => {
+            const card = document.createElement('div');
+            card.classList.add('card', 'hide');
+            card.textContent = data.name;
+            results.appendChild(card);
+        })
+
+        console.log(allcoins);
+
     })
     .catch(err => console.error(err));
->>>>>>> d08128ecae7f036223a83cbeef4e408e65b24093
+
+
+

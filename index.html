@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
     <title>Crypto Conversion</title>
 </head>
 <body>
@@ -60,16 +63,18 @@
             </div>
         </div>
     </nav>
-​
+
     <div class="image">
         <img src="./assets/Img/bitcoinbanner.png" alt="">
     </div>
 
 
+
+
     <main>
         <div class="columns">
         <!-- Section to the left -->
-            <div class="column buttons is-one-third">
+            <div id="cryptos" class="column buttons is-one-third">
                 <div id="coin-1" class="card">
                     <header class="card-header">
                       <p class="card-header-title has-text-light" lass="animate pop">
@@ -151,14 +156,17 @@
                     <div id="par" class="message-body">
                       <div class="columns level is-centered is-vcentered">
                         <div class="column is-two-thirds">
-                          <input class="input is-info" type="text" placeholder="Search">
+                          <input id="crypto-search" class="input is-info" type="text" placeholder="Exampe: Bitcoin">
                         </div>
                         <div class="colum is-one-third">
-                          <button class="button is-dark">Dark</button>
+                          <button id="search" class="button is-dark">Search</button>
                         </div>
                       </div>
-                      Please use the search bar below to search your top 10 coins.
-                      Then please click any of the buttons to the left to display the information on that specific Crypto Currency and its values.
+                      <div id="search-results" class="crypto-list">
+
+                      </div>
+                      Please use the search bar above to search for coins.
+                      Then please click any of the buttons to that show up to display the information on that specific Crypto Currency and its values.
                     </div>
                 </article>
             </div>

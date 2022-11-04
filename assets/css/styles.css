@@ -1,13 +1,18 @@
 @media (max-width:768px){
     .nav {
         display:block;
-        text-align: centerm ;
+        text-align: center;
     }
+}
+
+body {
+  font-family: 'Oswald', sans-serif;
 }
 
 main {
     width: 80%;
     padding-left: 20px;
+    padding-top: 30px;
 }
 
 main a {
@@ -42,9 +47,6 @@ input[type=text], select, textarea {
   }
   
   /* Add a background color and some padding around the form */
-main {
-  padding-top: 30px;
-}
 
   .container {
     border-radius: 5px;
@@ -66,5 +68,13 @@ main {
   .card:hover {
     background-color: darkslategray;
     cursor: pointer;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .show {
+    display: block;
   }
 
